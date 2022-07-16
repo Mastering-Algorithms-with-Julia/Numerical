@@ -1,0 +1,17 @@
+* 数值计算
+** 方程求解
+#+begin_src julia
+  root(f::Function, df::Function; start::Number, n::Int, delta::Number)
+#+end_src
+- =f= 求解的函数
+- =df= f 的导数
+- =start= 从哪个数字开始，默认为 =0=
+- =n= 迭代的次数，默认为 =100=
+- =delta= 精度大小，默认为 =0.001=
+*** Usage
+#+begin_src julia
+  f(x) = x ^ 2 + 2x + 1
+  df(x) = 2x + 2 # df 是 f 的导数
+
+  (status, result) = root(f, df; start = 10, n = 100, delta = 0.001)
+#+end_src

@@ -1,5 +1,7 @@
 module Numerical
 
-greet() = print("Hello World!")
+include("root.jl")
+
+export root
 
 end # module
