@@ -9,3 +9,13 @@ using Numerical, Test
     @test abs(result - 1) < 0.001
   end
 end
+
+@testset "test interpol" begin
+  xs = collect(1:10)
+  f(x) = 1 + 2x + 3x^2
+  fxs = map(f, xs)
+
+  result = interpolate(xs, fxs, 5)
+  @show result
+  @show f(5)
+end

@@ -1,4 +1,26 @@
 * 数值计算
+** 多项式插值
+目前只会写 拉格朗日插值法
+#+begin_src julia
+  interpolate(xs::Vector{T1}, ys::Vector{T2}, target::T3; method = lagrange_interpolate) where {T1 <: Number, T2 <: Number, T3 <: Number}
+#+end_src
+
+其中
+- xs 表示 x轴上的点
+- ys 表示 y轴上的点
+- target 表示要求的 x
+
+*** Usage
+#+begin_src julia
+  xs = collect(1:10)
+  f(x) = 1 + 2x + 3x^2
+  fxs = map(f, xs)
+
+  result = interpolate(xs, fxs, 5)
+  @show result
+  @show f(5)
+
+#+end_src
 ** 方程求解
 #+begin_src julia
   root(f::Function, df::Function; start::Number, n::Int, delta::Number)
