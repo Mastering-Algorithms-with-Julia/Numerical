@@ -21,6 +21,17 @@
   @show f(5)
 
 #+end_src
+** 最小二乘估计法
+这里最小二乘发用来确定函数 =y(x) = b0 + b1x= 中 b0 和 b1 的估计值，用来确定最佳拟合曲线
+
+*** Usage
+#+begin_src julia
+  xs = 1:10
+  ys = map(x -> 2x + 1, xs)
+
+  @test lsqe(xs, ys) == (1.0, 2.0)
+
+#+end_src
 ** 方程求解
 #+begin_src julia
   root(f::Function, df::Function; start::Number, n::Int, delta::Number)

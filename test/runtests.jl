@@ -19,3 +19,10 @@ end
   @show result
   @show f(5)
 end
+
+@testset "test lsqe" begin
+  xs = 1:10
+  ys = map(x -> 2x + 1, xs)
+
+  @test lsqe(xs, ys) == (1.0, 2.0)
+end
